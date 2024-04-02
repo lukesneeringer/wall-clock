@@ -1,4 +1,4 @@
-# Date
+# Wall Clock Time
 
 [![ci](https://github.com/lukesneeringer/wall-clock/actions/workflows/ci.yaml/badge.svg)](https://github.com/lukesneeringer/wall-clock/actions/workflows/ci.yaml)
 [![codecov](https://codecov.io/gh/lukesneeringer/wall-clock/branch/main/graph/badge.svg?token=GPKesuBDmd)](https://codecov.io/gh/lukesneeringer/wall-clock)
