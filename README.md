@@ -1,7 +1,7 @@
 # Date
 
 [![ci](https://github.com/lukesneeringer/wall-clock/actions/workflows/ci.yaml/badge.svg)](https://github.com/lukesneeringer/wall-clock/actions/workflows/ci.yaml)
-[![codecov](https://codecov.io/gh/lukesneeringer/wall-clock/branch/main/graph/badge.svg?token=oH2z7PFp06)](https://codecov.io/gh/lukesneeringer/wall-clock)
+[![codecov](https://codecov.io/gh/lukesneeringer/wall-clock/branch/main/graph/badge.svg?token=GPKesuBDmd)](https://codecov.io/gh/lukesneeringer/wall-clock)
 [![release](https://img.shields.io/crates/v/wall-clock.svg)](https://crates.io/crates/wall-clock)
 [![docs](https://img.shields.io/badge/docs-release-blue)](https://docs.rs/wall-clock/latest/date/)
 
