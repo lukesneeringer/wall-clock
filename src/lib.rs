@@ -29,6 +29,9 @@ use std::fmt::Debug;
 use std::fmt::Display;
 use std::str::FromStr;
 
+use strptime::ParseResult;
+use strptime::Parser;
+
 #[cfg(feature = "diesel-pg")]
 mod db;
 #[cfg(feature = "serde")]
@@ -81,6 +84,11 @@ impl WallClockTime {
     assert!(seconds < 86_400, "Seconds out of bounds.");
     assert!(micros < 1_000_000, "Microseconds out of bounds.");
     Self { seconds, micros }
+  }
+
+  /// Parse a wall clock time from a string. Any date components are ignored.
+  pub fn parse(time_str: impl AsRef<str>, time_fmt: &'static str) -> ParseResult<Self> {
+    Ok(Parser::new(time_fmt).parse(time_str)?.time()?.into())
   }
 
   /// The number of hours since midnight.
@@ -141,6 +149,17 @@ impl FromStr for WallClockTime {
     let minutes = hms[1].parse::<u32>().map_err(|_| "Invalid MM")?;
     let seconds = hms[2].parse::<u32>().map_err(|_| "Invalid SS")?;
     Ok(Self { seconds: hours * 3600 + minutes * 60 + seconds, micros })
+  }
+}
+
+impl From<strptime::RawTime> for WallClockTime {
+  fn from(value: strptime::RawTime) -> Self {
+    Self::new_with_micros(
+      value.hour(),
+      value.minute(),
+      value.second(),
+      (value.nanosecond() / 1_000) as u32,
+    )
   }
 }
 
